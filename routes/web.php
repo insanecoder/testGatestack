@@ -24,3 +24,7 @@ Route::post('/makePayment',['uses'=>'PaymentController@makePayment','as'=>'makeP
 Route::any('/payment-success',['uses'=>'PaymentController@paymentSuccess','as'=>'sucessPayment']);
 
 Route::post('/create-order',['uses'=>'PaymentController@createOrder','as'=>'createOrder']);
+
+Route::get('/admin/testSeries/{userName}/{password}',['uses'=>'TestController@createTestSeries','as'=>'createTestSeries']);
+
+Route::post('/admin/testSeries/submit',['uses'=>'TestController@saveTestSeries','as'=>'saveTestSeries']);
