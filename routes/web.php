@@ -28,3 +28,13 @@ Route::post('/create-order',['uses'=>'PaymentController@createOrder','as'=>'crea
 Route::get('/admin/testSeries/{userName}/{password}',['uses'=>'TestController@createTestSeries','as'=>'createTestSeries']);
 
 Route::post('/admin/testSeries/submit',['uses'=>'TestController@saveTestSeries','as'=>'saveTestSeries']);
+
+Route::get('/admin/questionSeries/{userName}/{password}',['uses'=>'TestController@createQuestion','as'=>'createQuestion']);
+
+Route::post('/admin/question/submit',['uses'=>'TestController@saveQuestion','as'=>'submitQuestion']);
+
+Route::post('/getQuestion',['uses'=>'QuestionController@getQuestion','as'=>'getQuestion']);
+
+Route::any('/getTestStatus',['uses'=>'TestController@getTestStatus','as'=>'getTestStatus']);
+
+Route::any('/saveTestStatus',['uses'=>'TestController@saveTestStatus','as'=>'saveTestStatus']);

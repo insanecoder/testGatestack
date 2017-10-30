@@ -4,6 +4,7 @@ namespace App\Services;
 
 use App\TestSeries;
 use App\Test;
+use App\Question;
 
 class TestService {
     
@@ -28,5 +29,13 @@ class TestService {
     		$testObj= $testObj->createFromArray($t);
     		$seriesObj->tests()->save($testObj);
     	}
+    }
+
+    function getQuestionDetailsWithoutReview($testID,$questionID,$section){
+        $offset= intval($questionID)-1;
+        $q= Question::select('questionStr','isMultipleChoice','optionA','optionB','optionC','optionD','imgPath')->where('testID',$testID)->where('section',$section)->skip($offset)->limit(1)->
+        get();
+
+        return $q->toArray();
     }
 }
